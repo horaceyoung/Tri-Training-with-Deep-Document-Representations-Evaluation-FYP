@@ -1,0 +1,105 @@
+seed: 4079
+train: ./data/ohsumed/train.csv
+test: ./data/ohsumed/test.csv
+labeled_train_out: ./data/ohsumed/0.1per_labeled_train_featurized.joblib
+unlabeled_train_out: ./data/ohsumed/0.1per_unlabeled_train_featurized.joblib
+test_out: ./data/ohsumed/0.1per_test_featurized.joblib
+encoder_out: ./models/ohsumed/0.1per_encoder.joblib
+binarizer_out: ./models/ohsumed/0.1per_binarizer.joblib
+embed:
+  tfidf: false
+  fasttext: true
+  fasttext_pretrained_path: ./data/crawl-300d-2M.vec
+  fasttext_text_matrix_out: ./models/ohsumed/0.1per_fasttext_text_matrix.joblib
+  doc2vec_path: ./data/enwiki_dbow/doc2vec.bin
+
+percent: 0.1
+# training parametersssss
+normal_batch_size: 32
+normal_val_split: 0.05
+normal_tfidf_epochs: 20
+normal_doc2vec_epochs: 20
+normal_fasttext_epochs: 20
+normal_use_epochs: 20
+normal_pooledbert_epochs: 20
+normal_seqbert_epochs: 20
+normal_pooledbiobert_epochs: 20
+normal_seqbiobert_epochs: 20
+normal_pooledelmo_epochs: 20
+normal_seqelmo_epochs: 20
+co_batch_size: 4
+co_val_split: 0.05
+co_tfidf_epochs: 20
+co_doc2vec_epochs: 20
+co_fasttext_epochs: 20
+co_use_epochs: 20
+co_pooledbert_epochs: 20
+co_seqbert_epochs: 20
+co_pooledbiobert_epochs: 20
+co_seqbiobert_epochs: 20
+co_pooledelmo_epochs: 20
+co_seqelmo_epochs: 20
+u: 400
+'n': 1
+k: 100
+
+tfidf_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0
+
+doc2vec_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0
+
+fasttext_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0
+
+use_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0
+
+pooledbert_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0
+
+seqbert_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0
+
+pooledelmo_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0
+
+seqelmo_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0
+
+
+pooledbiobert_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0
+
+seqbiobert_kwargs:
+  dropout_rate: 0
+  kernel_regularizer: 0
+  activity_regularizer: 0
+  bias_regularizer: 0

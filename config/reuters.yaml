@@ -1,0 +1,6 @@
+train: ./data/reuters/train.csv
+test: ./data/reuters/test.csv
+train_out: ./data/reuters/train_featurized.joblib
+test_out: ./data/reuters/test_featurized.joblib
+embed: tfidf
+

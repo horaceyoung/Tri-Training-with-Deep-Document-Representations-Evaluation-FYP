@@ -1,0 +1,7 @@
+evaluate tri-training algorithm for word representations and document representations
+word representations: word2vec, glove, fasttext
+document representations: TFIDF, Doc2Vec, USE, BERTs, BERTp, ELMOs, ELMOp
+models: SVM, MLP, RF, XGB, AdaBoost, Gradient Boost
+
+weighted-document embeddings
+evaluation: initial hypothesis
