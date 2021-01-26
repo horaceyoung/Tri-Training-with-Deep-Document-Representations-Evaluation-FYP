@@ -1,6 +1,4 @@
-#Obsolete items
 code/cz4079-co-training-master
 code/FYP_RecSys.ipynb
-
-# Pre-trained models
 resources/enwiki_dbow
+data/20news
