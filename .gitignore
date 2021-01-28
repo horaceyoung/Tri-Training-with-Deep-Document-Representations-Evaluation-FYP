@@ -2,3 +2,5 @@ code/cz4079-co-training-master
 code/FYP_RecSys.ipynb
 resources/enwiki_dbow
 data/20news
+code/.idea
+code/__pycache__
