@@ -19,6 +19,7 @@ from keras.callbacks import ModelCheckpoint
 
 logging.basicConfig(level=logging.DEBUG)
 
+
 class TriTraining:
     def __init__(self, representations, classifiers, config):
         """
@@ -33,7 +34,7 @@ class TriTraining:
         self.representations = representations
         self.classifiers = classifiers
         self.config = config
-        self.initialized = False # a flag indicating if data has been loaded
+        self.initialized = False  # a flag indicating if data has been loaded
         self.labeled_data = []
         self.labeled_class = []
         self.unlabeled_data = []

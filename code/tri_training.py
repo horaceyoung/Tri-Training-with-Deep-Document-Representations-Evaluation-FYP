@@ -21,7 +21,7 @@ from keras.callbacks import EarlyStopping
 from keras.callbacks import ModelCheckpoint
 # from utils.common import build_model, build_model_word_vector, build_conv_model, softmax
 
-file = '../config/ttnews.yaml'
+file = '../config/load_dbpedia.yaml'
 with open(file, 'r') as f:
     config = yaml.safe_load(f)
 # end with
