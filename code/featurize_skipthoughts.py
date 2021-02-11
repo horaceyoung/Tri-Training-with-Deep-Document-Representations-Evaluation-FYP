@@ -21,10 +21,10 @@ def load_clean_data(path):
 
 
 def get_bert(df, batch_size):
-    pprint('Converting to bert....')
+    pprint("Converting to bert....")
     df_pooled_all = []
     # df_seq_all = []
-    texts = list(df['text'].values)
+    texts = list(df["text"].values)
     count = 0
     for chunk in np.array_split(texts, batch_size):
         texts = preprocess(chunk)
@@ -40,7 +40,7 @@ def get_bert(df, batch_size):
     df_pooled = df.copy()
     # df_seq = df.copy()
     print(len(list(df_pooled_all)))
-    df_pooled['text'] = list(df_pooled_all)
+    df_pooled["text"] = list(df_pooled_all)
     # df_seq['text'] = list(df_seq_all)
     return df_pooled
 
@@ -53,26 +53,25 @@ def save_featurized_data(df, path):
 logging.basicConfig(level=logging.DEBUG)
 np.set_printoptions(threshold=sys.maxsize)
 
-preprocess = hub.load('https://tfhub.dev/tensorflow/albert_en_preprocess/2')
+preprocess = hub.load("https://tfhub.dev/tensorflow/albert_en_preprocess/2")
 
-BERT_EMBED = hub.load(
-    "https://tfhub.dev/tensorflow/albert_en_base/2")
+BERT_EMBED = hub.load("https://tfhub.dev/tensorflow/albert_en_base/2")
 
 config_path = "../config/load_yelp.yaml"
-with open(config_path, 'r') as f:
+with open(config_path, "r") as f:
     config = yaml.safe_load(f)
 # end with
-pprint('=' * 20 + 'Configs' + '=' * 20)
+pprint("=" * 20 + "Configs" + "=" * 20)
 pprint(config)
 
 pprint("Featurizing starts--")
 
-df_train = load_clean_data(config['train_out_path'])
+df_train = load_clean_data(config["train_out_path"])
 pooled_train = get_bert(df_train, 6500)
-save_featurized_data(pooled_train, config['train_pool_bert_name'])
+save_featurized_data(pooled_train, config["train_pool_bert_name"])
 # save_featurized_data(seq_train, config['train_seq_bert_name'])
 
-'''df_test = load_clean_data(config['test_out_path'])
+"""df_test = load_clean_data(config['test_out_path'])
 pooled_test = get_bert(df_test, 250)
 save_featurized_data(pooled_test, config['test_pool_bert_name'])
-# save_featurized_data(seq_test, config['test_seq_bert_name'])'''
+# save_featurized_data(seq_test, config['test_seq_bert_name'])"""

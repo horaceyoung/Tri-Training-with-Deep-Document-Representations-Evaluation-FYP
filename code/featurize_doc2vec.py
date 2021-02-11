@@ -21,7 +21,9 @@ def load_clean_data(path):
 
 def get_doc2vec(df):
     # embed all documents with doc2vec
-    df['text'] = list(np.array([model.infer_vector(doc.strip().split()) for doc in df['text'].values]))
+    df["text"] = list(
+        np.array([model.infer_vector(doc.strip().split()) for doc in df["text"].values])
+    )
     return df
 
 
@@ -36,16 +38,16 @@ np.set_printoptions(threshold=sys.maxsize)
 model = Doc2Vec.load("../resources/enwiki_dbow/doc2vec.bin")
 
 config_path = "../config/load_dbpedia.yaml"
-with open(config_path, 'r') as f:
+with open(config_path, "r") as f:
     config = yaml.safe_load(f)
 # end with
-pprint('=' * 20 + 'Configs' + '=' * 20)
+pprint("=" * 20 + "Configs" + "=" * 20)
 pprint(config)
 
 pprint("Featurizing starts--")
-df_train = load_clean_data(config['train_out_path'])
+df_train = load_clean_data(config["train_out_path"])
 featurized_train = get_doc2vec(df_train)
-save_featurized_data(featurized_train, config['train_doc2vec_name'])
+save_featurized_data(featurized_train, config["train_doc2vec_name"])
 
 # df_test = load_clean_data(config['test_out_path'])
 # featurized_test = get_doc2vec(df_test)
